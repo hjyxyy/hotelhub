@@ -1,0 +1,180 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 10.200.0.79
+ Source Server Type    : MySQL
+ Source Server Version : 50640
+ Source Host           : 10.200.0.79:3306
+ Source Schema         : harry_test
+
+ Target Server Type    : MySQL
+ Target Server Version : 50640
+ File Encoding         : 65001
+
+ Date: 27/06/2019 17:08:29
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for app_user
+-- ----------------------------
+DROP TABLE IF EXISTS `app_user`;
+CREATE TABLE `app_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `last_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `account` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `profile` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL COMMENT '0 normal 1 pause 2 deleted',
+  `type` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of app_user
+-- ----------------------------
+BEGIN;
+INSERT INTO `app_user` VALUES (1, '2019-06-27 16:06:01', '2019-06-27 16:06:01', 'harry', '123456', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (2, '2019-06-27 16:59:44', '2019-06-27 16:59:44', '1edb0d95-ccdd-4476-bf8f-a7c5f03f7b8e', '7d02f4b3-68a2-4b14-8abd-478de642e73d', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (3, '2019-06-27 17:00:53', '2019-06-27 17:00:53', '252a11c0-622a-4843-b7ff-31adb05f9995', 'b9a52ac2-50c3-4c46-b32b-0f0f22c9e282', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (4, '2019-06-27 17:01:14', '2019-06-27 17:01:14', '12ca36a2-4418-4a09-ac30-d98b5888ab83', 'b0262d13-ea7b-49eb-a246-4557627e8bed', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (5, '2019-06-27 17:03:37', '2019-06-27 17:03:37', '8c7a9d62-1f1d-4e35-bee2-2c3c4ebbe90b', 'a249afe4-c78c-43e9-a8a7-25f354c43401', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (6, '2019-06-27 17:04:58', '2019-06-27 17:04:58', 'c7862fb3-cbf5-4869-a272-1373f2340962', 'd6234875-2ff4-4de5-a829-ae3c17fb837c', NULL, 0, 0);
+INSERT INTO `app_user` VALUES (7, '2019-06-27 17:05:53', '2019-06-27 17:05:53', 'f5f6cdb5-5f2e-4cd2-9c01-42018d10c046', '3a29ae98-e3d4-4d0c-9f0e-96833b213ca6', NULL, 0, 0);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for bidding_multiplier
+-- ----------------------------
+DROP TABLE IF EXISTS `bidding_multiplier`;
+CREATE TABLE `bidding_multiplier` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `last_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `hotel_id` bigint(20) DEFAULT NULL,
+  `los` int(11) DEFAULT NULL,
+  `multiplier` decimal(19,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bidding_multiplier
+-- ----------------------------
+BEGIN;
+INSERT INTO `bidding_multiplier` VALUES (1, '2019-06-27 16:12:26', '2019-06-27 16:12:26', 1, 1, 1.00);
+INSERT INTO `bidding_multiplier` VALUES (2, '2019-06-27 16:12:34', '2019-06-27 16:12:34', 1, 2, 2.00);
+INSERT INTO `bidding_multiplier` VALUES (3, '2019-06-27 16:12:39', '2019-06-27 16:12:39', 1, 3, 3.00);
+INSERT INTO `bidding_multiplier` VALUES (4, '2019-06-27 16:12:48', '2019-06-27 16:12:48', 1, 4, 0.38);
+INSERT INTO `bidding_multiplier` VALUES (5, '2019-06-27 16:12:56', '2019-06-27 16:12:56', 1, 5, 5.00);
+INSERT INTO `bidding_multiplier` VALUES (6, '2019-06-27 16:13:04', '2019-06-27 16:13:04', 1, 6, 6.00);
+INSERT INTO `bidding_multiplier` VALUES (7, '2019-06-27 16:13:15', '2019-06-27 16:13:15', 1, 7, 6.80);
+INSERT INTO `bidding_multiplier` VALUES (8, '2019-06-27 16:13:22', '2019-06-27 16:13:22', 1, 8, 8.00);
+INSERT INTO `bidding_multiplier` VALUES (9, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 3, 3.00);
+INSERT INTO `bidding_multiplier` VALUES (10, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 6, 6.00);
+INSERT INTO `bidding_multiplier` VALUES (11, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 1, 1.00);
+INSERT INTO `bidding_multiplier` VALUES (12, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 4, 0.38);
+INSERT INTO `bidding_multiplier` VALUES (13, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 7, 6.80);
+INSERT INTO `bidding_multiplier` VALUES (14, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 2, 2.00);
+INSERT INTO `bidding_multiplier` VALUES (15, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 5, 5.00);
+INSERT INTO `bidding_multiplier` VALUES (16, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 2, 8, 8.00);
+INSERT INTO `bidding_multiplier` VALUES (17, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 3, 3.00);
+INSERT INTO `bidding_multiplier` VALUES (18, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 6, 6.00);
+INSERT INTO `bidding_multiplier` VALUES (19, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 1, 1.00);
+INSERT INTO `bidding_multiplier` VALUES (20, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 4, 0.38);
+INSERT INTO `bidding_multiplier` VALUES (21, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 7, 6.80);
+INSERT INTO `bidding_multiplier` VALUES (22, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 2, 2.00);
+INSERT INTO `bidding_multiplier` VALUES (23, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 5, 5.00);
+INSERT INTO `bidding_multiplier` VALUES (24, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 3, 8, 8.00);
+INSERT INTO `bidding_multiplier` VALUES (25, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 8, 8.00);
+INSERT INTO `bidding_multiplier` VALUES (26, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 3, 3.00);
+INSERT INTO `bidding_multiplier` VALUES (27, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 6, 6.00);
+INSERT INTO `bidding_multiplier` VALUES (28, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 1, 1.00);
+INSERT INTO `bidding_multiplier` VALUES (29, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 4, 0.38);
+INSERT INTO `bidding_multiplier` VALUES (30, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 7, 6.80);
+INSERT INTO `bidding_multiplier` VALUES (31, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 2, 2.00);
+INSERT INTO `bidding_multiplier` VALUES (32, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 4, 5, 5.00);
+INSERT INTO `bidding_multiplier` VALUES (33, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 5, 5.00);
+INSERT INTO `bidding_multiplier` VALUES (34, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 8, 8.00);
+INSERT INTO `bidding_multiplier` VALUES (35, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 3, 3.00);
+INSERT INTO `bidding_multiplier` VALUES (36, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 6, 6.00);
+INSERT INTO `bidding_multiplier` VALUES (37, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 1, 1.00);
+INSERT INTO `bidding_multiplier` VALUES (38, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 4, 0.38);
+INSERT INTO `bidding_multiplier` VALUES (39, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 7, 6.80);
+INSERT INTO `bidding_multiplier` VALUES (40, '2019-06-27 16:16:10', '2019-06-27 16:16:10', 5, 2, 2.00);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for booking_record
+-- ----------------------------
+DROP TABLE IF EXISTS `booking_record`;
+CREATE TABLE `booking_record` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `last_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `checkin` varchar(255) DEFAULT NULL,
+  `checkout` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `hotel_id` bigint(20) DEFAULT NULL,
+  `price` decimal(19,2) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of booking_record
+-- ----------------------------
+BEGIN;
+INSERT INTO `booking_record` VALUES (2, '2019-06-27 16:23:05', '2019-06-27 16:23:05', '2019-06-27', '2019-06-29', NULL, 1, 400.00, 'Cancelled', 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for hibernate_sequence
+-- ----------------------------
+DROP TABLE IF EXISTS `hibernate_sequence`;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of hibernate_sequence
+-- ----------------------------
+BEGIN;
+INSERT INTO `hibernate_sequence` VALUES (2);
+INSERT INTO `hibernate_sequence` VALUES (2);
+INSERT INTO `hibernate_sequence` VALUES (2);
+INSERT INTO `hibernate_sequence` VALUES (2);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for hotel_info
+-- ----------------------------
+DROP TABLE IF EXISTS `hotel_info`;
+CREATE TABLE `hotel_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `last_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `available` bit(1) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `linkurl` varchar(255) DEFAULT NULL,
+  `logourl` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of hotel_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `hotel_info` VALUES (1, '2019-06-27 16:08:02', '2019-06-27 16:08:02', b'1', 'shanghai', NULL, NULL, 'hotel1', 100);
+INSERT INTO `hotel_info` VALUES (2, '2019-06-27 16:08:27', '2019-06-27 16:08:27', b'1', 'shanghai', NULL, NULL, 'hotel2', 200);
+INSERT INTO `hotel_info` VALUES (3, '2019-06-27 16:08:50', '2019-06-27 16:08:50', b'0', 'shanghai', NULL, NULL, 'hotel3', 200);
+INSERT INTO `hotel_info` VALUES (4, '2019-06-27 16:09:06', '2019-06-27 16:09:06', b'1', 'beijing', NULL, NULL, 'hotel4', 100);
+INSERT INTO `hotel_info` VALUES (5, '2019-06-27 16:09:21', '2019-06-27 16:09:21', b'1', 'beijing', NULL, NULL, 'hotel5', 200);
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;
